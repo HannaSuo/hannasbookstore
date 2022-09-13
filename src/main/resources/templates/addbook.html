@@ -2,7 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Insert title here</title>
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css"
+	th:href="@{/css/bootstrap.min.css}" />
+<title>Add book</title>
 </head>
 <body>
 <h1>Add book</h1>
@@ -24,11 +26,11 @@
  <input type="number" th:field="*{price}" />
  
  <label for="categories">Category</label>
-<select id="categories" th:field="*{category}" class="form-control"> <option th:each="category: ${categories}" th:value="${category.categoryId}" 
+<select id="categories" th:field="*{category}"> <option th:each="category: ${categories}" th:value="${category.categoryId}" 
  th:text="${category.name}"></option>
 </select>
  
- <input type="submit" value="Save"></input>
+ <input class="btn btn-success" type="submit" value="Save"></input>
  </form>
 </div>
 <a href="/booklist" class="btn btn-primary">Back to Booklist</a>
