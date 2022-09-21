@@ -30,9 +30,9 @@ public class BookController {
 		return "booklist";
 	}
 
-	//Action in the editbook page, is this needed? 
+	//Action in the editbook page, is this needed? Mapped this to save also 
 	/*@PostMapping("/booklist")
-	public String postBookList(Book book, Model model) {
+	public String postBookList(Model model) {
 		repository.save(book);
 		return "redirect:booklist";
 	} */
