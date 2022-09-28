@@ -1,5 +1,6 @@
 package com.example.hannasbookstore.web;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.hannasbookstore.model.Book;
 import com.example.hannasbookstore.model.BookRepository;
@@ -65,6 +67,18 @@ public class BookController {
 		model.addAttribute("book", repository.findById(id));
 		model.addAttribute("categories", crepository.findAll());
 		return "editbook";
+	}
+	
+	//RESTful service, all books
+	@GetMapping("/books") 
+	public @ResponseBody List<Book> bookListRest(){
+		return (List<Book>) repository.findAll();
+	}
+	
+	//RESTful service, book by ID
+	@GetMapping("/book/{id}")
+	public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long id) {
+		return repository.findById(id);
 	}
 
 }
