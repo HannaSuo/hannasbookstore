@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.example.hannasbookstore.model.Book;
 import com.example.hannasbookstore.model.BookRepository;
-import com.example.hannasbookstore.model.Category;
 import com.example.hannasbookstore.model.CategoryRepository;
 
 @Controller
@@ -60,7 +59,6 @@ public class BookController {
 	}
 
 	// deletes selected book by id
-	@PreAuthorize("hasRole('ADMIN')")
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long id, Model model) {
 		repository.deleteById(id);
